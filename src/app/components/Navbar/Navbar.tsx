@@ -23,7 +23,9 @@ import { Store } from '@reduxjs/toolkit';
 import { tokenReducer } from '../../lib/userSlice';
 import { getCookie } from 'cookies-next';
 
-const pages = [];
+
+const pages: string[] = [];
+
 const settings = [
   { 
     text: "Profile", link: "/profile",
@@ -185,8 +187,8 @@ export default function Navbar() {
             {settings.map((setting) => (
   <Link href={setting.link} key={setting.text} style={{ textDecoration: 'none', color: 'inherit' }}>
     <MenuItem onClick={()=>{
-      handleCloseUserMenu(),
-      setting.onClick()
+      handleCloseUserMenu();
+      setting.onclick && setting.onclick();
     }}>
       <Typography textAlign="center">{setting.text}</Typography>
     </MenuItem>
