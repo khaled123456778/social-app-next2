@@ -1,12 +1,11 @@
 import SinglePost from "@/app/components/SinglePost/SinglePost";
 
-type Props = {
+type PageProps = {
   params: {
     id: string;
   };
 };
 
-export default function Page({ params }: Props) {
-  const { id } = params;
-  return <SinglePost id={id} />;
+export default function PostDetailsPage({ params }: PageProps) {
+  return <SinglePost id={params.id} />;
 }
