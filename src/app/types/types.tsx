@@ -45,7 +45,6 @@ export type Post = {
   comments: Comment[];
 };
 
-// مصفوفة من المنشورات
 export type Posts = Post[];
 
 export type idParams={
@@ -60,10 +59,10 @@ export type Props = {
 
 interface UserI {
   _id: string;
-  createdAt: string; // ISO date string
+  createdAt: string |number; 
   dateOfBirth: string; // ISO date string
   email: string;
-  gender: 'male' | 'female'; // قيدناها بقيم محتملة
+  gender: 'male' | 'female';
   name: string;
   photo: string;
 }
@@ -91,3 +90,15 @@ export interface UserPost {
   createdAt: string;
   user: PostUser;
 }
+
+export interface UserPost {
+  _id: string;
+  body: string;
+  image: string;
+  createdAt: string;
+  user: PostUser; // استخدم النوع الموجود مسبقًا
+}
+
+
+
+

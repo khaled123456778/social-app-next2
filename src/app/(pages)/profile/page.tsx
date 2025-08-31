@@ -27,7 +27,7 @@ const UserProfile = () => {
 
   const { userData, userPosts } = useSelector(
     (state: ReturnType<typeof store.getState>) => state.tokenReducer
-  );
+  ) as any;
 
   useEffect(() => {
     dispatch(getUserData());
@@ -94,14 +94,14 @@ const UserProfile = () => {
 
         <CardContent>
           <Grid container spacing={2}>
-            <Grid item xs={6}>
+            <Grid  size={6}>
               <Typography variant="subtitle2" color="textSecondary">
                 Gender
               </Typography>
               <Typography variant="body1">{userData.gender}</Typography>
             </Grid>
 
-            <Grid item xs={6}>
+            <Grid size ={6}>
               <Typography variant="subtitle2" color="textSecondary">
                 Date of Birth
               </Typography>
@@ -110,7 +110,7 @@ const UserProfile = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={6}>
+            <Grid size ={6}>
               <Typography variant="subtitle2" color="textSecondary">
                 Account Created
               </Typography>
@@ -119,16 +119,16 @@ const UserProfile = () => {
               </Typography>
             </Grid>
 
-            <Grid item xs={6}>
+            <Grid size ={6}>
               <Typography variant="subtitle2" color="textSecondary">
                 Password Changed
               </Typography>
               <Typography variant="body1">
-                {new Date(userData.passwordChangedAt).toLocaleString()}
+                {new Date(userData.createdAt).toLocaleString()}
               </Typography>
             </Grid>
 
-            <Grid item xs={12}>
+            <Grid size ={12}>
               <Divider sx={{ my: 2 }} />
               <Typography variant="subtitle2" color="textSecondary">
                 User ID
@@ -150,7 +150,7 @@ const UserProfile = () => {
         {userPosts && userPosts.length > 0 ? (
           <Grid container spacing={2}>
             {userPosts.map((post: any) => (
-              <Grid item xs={12} key={post._id}>
+              <Grid size={12} key={post._id}>
                 <Card
                   sx={{
                     display: "flex",
