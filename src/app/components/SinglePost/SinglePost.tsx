@@ -7,13 +7,11 @@ import { store } from "@/app/lib/store";
 import Loading from "@/app/components/Loading/Loading";
 import PostCard from "@/app/components/PostCard/PostCard";
 
-type PageProps = {
-  params: {
-    id: string;
-  };
+type SinglePostProps = {
+  id: string;
 };
 
-export default function SinglePost({ params }: PageProps) {
+export default function SinglePost({ id }: SinglePostProps) {
   const dispatch = useDispatch<typeof store.dispatch>();
 
   const { singlePost } = useSelector(
@@ -21,10 +19,10 @@ export default function SinglePost({ params }: PageProps) {
   );
 
   useEffect(() => {
-    if (params.id) {
-      dispatch(getPostDetails(params.id));
+    if (id) {
+      dispatch(getPostDetails(id));
     }
-  }, [dispatch, params.id]);
+  }, [dispatch, id]);
 
   if (!singlePost) {
     return <Loading />;
