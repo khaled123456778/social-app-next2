@@ -1,0 +1,7 @@
+
+import RegisterForm from '@/app/components/RegisterForm/RegisterForm'
+import React from 'react'
+
+export default function register() {
+  return <RegisterForm/>
+}
