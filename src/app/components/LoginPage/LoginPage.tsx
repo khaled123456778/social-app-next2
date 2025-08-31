@@ -40,7 +40,7 @@ if (res?.payload?.message ==="success") {
 
 
 }).catch((error)=>{console.log(error);
-  toast.error(" error")
+  toast.error("error")
 })
 
 

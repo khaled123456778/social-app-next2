@@ -19,7 +19,7 @@ import { useRouter } from "next/router";
 export let userLogin = createAsyncThunk("userSlice/userLogin",async (values:{email:string,
     password:string
 })=>{let {data} =await axios.post("https://linked-posts.routemisr.com/users/signin",values)
-return  data}
+   return data}
 )
 
 
