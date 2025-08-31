@@ -1,17 +1,19 @@
 "use client";
 
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getPostDetails } from '@/app/lib/postSlice';
-import { store } from '@/app/lib/store';
-import Loading from '@/app/components/Loading/Loading';
-import PostCard from '@/app/components/PostCard/PostCard';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getPostDetails } from "@/app/lib/postSlice";
+import { store } from "@/app/lib/store";
+import Loading from "@/app/components/Loading/Loading";
+import PostCard from "@/app/components/PostCard/PostCard";
 
-type Props = {
-  id: string;
+type PageProps = {
+  params: {
+    id: string;
+  };
 };
 
-export default function SinglePost({ id }: Props) {
+export default function SinglePost({ params }: PageProps) {
   const dispatch = useDispatch<typeof store.dispatch>();
 
   const { singlePost } = useSelector(
@@ -19,10 +21,10 @@ export default function SinglePost({ id }: Props) {
   );
 
   useEffect(() => {
-    if (id) {
-      dispatch(getPostDetails(id));
+    if (params.id) {
+      dispatch(getPostDetails(params.id));
     }
-  }, [dispatch, id]);
+  }, [dispatch, params.id]);
 
   if (!singlePost) {
     return <Loading />;
