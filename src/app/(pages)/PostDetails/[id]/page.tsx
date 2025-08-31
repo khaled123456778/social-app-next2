@@ -6,7 +6,7 @@ type PageProps = {
   };
 };
 
-export default  async function Page({ params }: PageProps) {
+export default  async function Page({ params }:any) {
   const  { id } = params;
   return <SinglePost id={id} />;
 }
